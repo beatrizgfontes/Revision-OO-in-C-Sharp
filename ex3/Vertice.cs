@@ -1,11 +1,12 @@
 ﻿using System;
 
-namespace ex2
+namespace ex3
 {
     public class Vertice
     {
         private float _x;
         private float _y;
+        private string _nome;
 
         private float setx
         {
@@ -23,15 +24,25 @@ namespace ex2
         {
             get { return _y; }
         }
+
+        private string setNome
+        {
+            set { _nome = value; }
+        }
+        public string getNome
+        {
+            get { return _nome; }
+        }
         public Vertice() {
             this.setx = 0;
             this.sety = 0;
         }
-        public Vertice(float x, float y)
+        public Vertice(float x, float y, string nome)
         {
             this.setx = x;
             this.sety = y;
-            Console.WriteLine("O vértice foi criado! = ({0};{1})",this.getx, this.gety);
+            this.setNome = nome;
+            Console.WriteLine("O vértice {0} foi criado! = ({1};{2})", this.getNome,this.getx, this.gety);
         }
 
         public float distancia(float x1, float y1, float x2, float y2) {

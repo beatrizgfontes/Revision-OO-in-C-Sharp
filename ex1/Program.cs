@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ex1;
 
 namespace ex1
@@ -16,7 +12,7 @@ namespace ex1
             n = int.Parse(Console.ReadLine());
 
             Piramide piramide1= new Piramide(n);
-            //Console.WriteLine(piramide1.N);
+            piramide1.desenhar(n);
             
             Console.ReadLine();
         }
