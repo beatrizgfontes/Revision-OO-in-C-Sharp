@@ -49,5 +49,19 @@ namespace ex2
             this.setx = x;
             this.sety = y;
         }
+
+        public bool iguais(float x1, float y1, float x2, float y2)
+        {
+            bool igual;
+            if(x1 == x2 && y1 == y2)
+            {
+                igual = true;
+            }
+            else
+            {
+                igual= false;
+            }
+            return igual;
+        }
     }
 }
