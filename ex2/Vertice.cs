@@ -39,5 +39,15 @@ namespace ex2
             dist = (float)Math.Sqrt(d);
             return dist;
         }
+
+        public void move()
+        {
+            Console.WriteLine("Informe a  nova posição de x e y respectivamente: ");
+            float x = float.Parse(Console.ReadLine());
+            float y = float.Parse(Console.ReadLine());
+
+            this.setx = x;
+            this.sety = y;
+        }
     }
 }
