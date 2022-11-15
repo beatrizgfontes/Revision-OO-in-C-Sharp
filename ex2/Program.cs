@@ -10,7 +10,6 @@ namespace ex2
             Vertice v1 = new Vertice(2,2);
             Vertice v2 = new Vertice(2,2);
 
-
             float distancia = v1.distancia(v1.getx, v1.gety, v2.getx, v2.gety);
 
             Console.WriteLine("A posição do vértice 1 é: ({0};{1})", v1.getx, v1.gety);
