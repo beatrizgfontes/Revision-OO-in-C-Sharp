@@ -8,19 +8,11 @@ namespace ex3
         static void Main(string[] args)
         {
             
-            Triangulo t1 = new Triangulo();
-            //t1.igualdade()
-            //Triangulo t2 = new Triangulo();
-
-
-            //t1.criarVertice(2f, 1f, "A");
-            //t1.criarVertice(1, 2, "B");
-            //t1.criarVertice(0, 1);
-
-            //t2.criarVertice(4, 1);
-            //t2.criarVertice(4, 1);
-
-
+            Triangulo t1 = new Triangulo(2, 2, "A", 4, 1, "B", 5, 6, "C");
+            Triangulo t2 = new Triangulo(2, 2, "A", 4, 1, "B", 5, 6, "C");
+            Console.WriteLine("O tipo do triângulo é: {0}", t1.Tipo());
+            Console.WriteLine("O valor da área é: {0}",t1.calculoArea());
+            Console.WriteLine("Os triângulos são iguais? {0}", t1.IgualdadeTriangulo(t1,t2));
             Console.ReadLine();
         }
     }
