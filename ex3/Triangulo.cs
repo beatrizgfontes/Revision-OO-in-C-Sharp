@@ -104,5 +104,5 @@ namespace ex3
         {
             return new Vertice(x, y, nome);
         }
-        }
+    }
 }
