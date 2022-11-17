@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{03AB64E9-02EF-4943-9E6D-AE23BDC09477}</ProjectGuid>
+    <ProjectGuid>{1ECD6584-5E02-4157-88FA-EBE73A7DA0B9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ex3</RootNamespace>
-    <AssemblyName>ex3</AssemblyName>
+    <RootNamespace>ex5</RootNamespace>
+    <AssemblyName>ex5</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,18 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Triangulo.cs" />
+    <Compile Include="Intervalo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ex2\ex2.csproj">
-      <Project>{8e1795e6-e537-4653-8d41-2ca45c7f6fc9}</Project>
-      <Name>ex2</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

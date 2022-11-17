@@ -12,7 +12,7 @@ namespace ex1
             n = int.Parse(Console.ReadLine());
 
             Piramide piramide1= new Piramide(n);
-            piramide1.desenhar(n);
+            piramide1.desenhar();
             
             Console.ReadLine();
         }

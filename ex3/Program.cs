@@ -7,12 +7,14 @@ namespace ex3
     {
         static void Main(string[] args)
         {
-            
-            Triangulo t1 = new Triangulo(2, 2, "A", 4, 1, "B", 5, 6, "C");
-            Triangulo t2 = new Triangulo(2, 2, "A", 4, 1, "B", 5, 6, "C");
+            Vertice v1 = new Vertice(2, 4);
+            Vertice v2 = new Vertice(1, 3);
+            Vertice v3 = new Vertice(2, 0);
+            Triangulo t1 = new Triangulo(v1,v2,v3);
+            Triangulo t2 = new Triangulo(v1, v2, v3);
             Console.WriteLine("O tipo do triângulo é: {0}", t1.Tipo());
             Console.WriteLine("O valor da área é: {0}",t1.calculoArea());
-            Console.WriteLine("Os triângulos são iguais? {0}", t1.IgualdadeTriangulo(t1,t2));
+            Console.WriteLine("Os triângulos são iguais? {0}", t1.IgualdadeTriangulo(t2));
             Console.ReadLine();
         }
     }

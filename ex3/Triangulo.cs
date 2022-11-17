@@ -1,60 +1,58 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
-//using ex2;
+using ex2;
 
 namespace ex3
 {
-    public class Triangulo : Vertice
+    public class Triangulo
     {
-        private float _x;
-        private float _y;
-        private float l1;
-        private float l2;
-        private float l3;
+        private float lado1;
+        private float lado2;
+        private float lado3;
         private float _perimetro;
         private float _area;
-        
-        public Triangulo() { 
-            this.criarVertice(0, 0, "0");
-            this.criarVertice(0, 0, "0");
-            this.criarVertice(0, 0, "0");
 
-            Console.WriteLine("Informe o tamanho dos lados do triângulo: ");
-            this.l1 = float.Parse(Console.ReadLine());
-            this.l2 = float.Parse(Console.ReadLine());
-            this.l3 = float.Parse(Console.ReadLine());
+        //Propriedades dos Vértices
+        public Vertice V1 { get; private set; }
+        public Vertice V2 { get; private set; }
+        public Vertice V3 { get; private set; }
 
-            this.Perimetro = this.l1 + this.l2 + this.l3;
-        }
-        public Triangulo(float x1, float y1, string nome1, float x2, float y2, string nome2, float x3, float y3, string nome3)
+        //Inicializando o triângulo
+        public Triangulo(Vertice v1, Vertice v2, Vertice v3)
         {
-            this.criarVertice(x1,y1, nome1);
-            this.criarVertice(x2,y2, nome2);
-            this.criarVertice(x3,y3, nome3);
+            this.lado1 = v1.distancia(v2);
+            this.lado2 = v2.distancia(v3);
+            this.lado3 = v3.distancia(v1);
 
-            Console.WriteLine("Informe o tamanho dos lados do triângulo: ");
-            this.l1 = float.Parse(Console.ReadLine());
-            this.l2 = float.Parse(Console.ReadLine());
-            this.l3 = float.Parse(Console.ReadLine());
+            //Ver se realmente é um triângulo
+            if ((lado1 + lado2 < lado3) || (lado1 + lado3 < lado2) || (lado2 + lado3 < lado1))
+                throw new Exception("Não é um triangulo!");
 
-            this.Perimetro = this.l1 + this.l2 + this.l3;
+            V1 = v1;
+            V2 = v2;
+            V3 = v3;
+
+            this.Perimetro = lado1 + lado2 + lado3;
         }
 
+        //Propriedade do perímetro
         private float Perimetro
         {
             get { return _perimetro; }
             set { _perimetro = value;}
         }
 
+        //Propriedade da área
         private float Area
         {
             get { return _area; }
             set { _area = value; }
         }
 
-        public bool IgualdadeTriangulo(Triangulo x, Triangulo y)
+        //Vendo se os triângulos são iguais
+        public bool IgualdadeTriangulo(Triangulo t2)
         {
-            if ((x.l1 == y.l1) && (x.l2 == y.l2) && (x.l3 == y.l3))
+            if ((this.lado1 == t2.lado1) && (this.lado2 == t2.lado2) && (this.lado3 == t2.lado3))
             {
                 bool igual = true;
                 return igual;
@@ -66,28 +64,26 @@ namespace ex3
             }
         }
 
+        //Método para calcular a área
         public float calculoArea()
         {
             float semiperimetro = (this.Perimetro) / 2;
-            float x = semiperimetro * (semiperimetro - this.l1) * (semiperimetro - this.l2) * (semiperimetro - this.l3);
+            float x = semiperimetro * (semiperimetro - this.lado1) * (semiperimetro - this.lado2) * (semiperimetro - this.lado3);
             this.Area = (float)Math.Sqrt(x);
             return this.Area;
         }
 
+        //Método para verificar o tipo
         public string Tipo()
         {
             string tp = "";
-            if ((this.l1 + this.l2 < this.l3) || (this.l1 + this.l3 < this.l2) || (this.l2 + this.l3 < this.l1))
-            {
-                tp = "Não é um triangulo!";
-                return tp;
-            }
-            else if ((this.l1 == this.l2) && (this.l1 == this.l3))
+            
+            if ((this.lado1 == this.lado2) && (this.lado1 == this.lado3))
             {
                 tp = "Equilatero";
                 return tp;
             }
-            else if ((this.l1 == this.l2) || (this.l1 == this.l3) || (this.l2 == this.l3))
+            else if ((this.lado1 == this.lado2) || (this.lado1 == this.lado3) || (this.lado2 == this.lado3))
             {
                 tp = "Isóceles";
                 return tp;
@@ -98,11 +94,6 @@ namespace ex3
                 return tp;
             }
             
-        }
-            
-        public Vertice criarVertice(float x, float y, string nome)
-        {
-            return new Vertice(x, y, nome);
         }
     }
 }

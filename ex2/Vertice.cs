@@ -4,53 +4,31 @@ namespace ex2
 {
     public class Vertice
     {
-        private float _x;
-        private float _y;
+        //Propriedades de x e y
+        public float X { get; private set; }
+        public float Y { get; private set; }
 
-        private float setx
-        {
-            set { _x = value; }
-        }
-        public float getx
-        {
-            get { return _x; }
-        }
-        private float sety
-        {
-            set { _y = value; }
-        }
-        public float gety
-        {
-            get { return _y; }
-        }
-        public Vertice() {
-            this.setx = 0;
-            this.sety = 0;
-        }
+        //Inicializando o Vértice
         public Vertice(float x, float y)
         {
-            this.setx = x;
-            this.sety = y;
-            Console.WriteLine("O vértice foi criado! = ({0};{1})",this.getx, this.gety);
+            this.X = x;
+            this.Y = y;
+            Console.WriteLine("O vértice foi criado! = ({0};{1})",this.X, this.Y);
         }
-
-        public float distancia(float x1, float y1, float x2, float y2) {
+        //Método distância
+        public float distancia(Vertice v2) {
             float d, dist;
-            d = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
+            d = (this.X - v2.X) * (this.X - v2.X) + (this.Y - v2.Y) * (this.Y - v2.Y);
             dist = (float)Math.Sqrt(d);
             return dist;
         }
-
-        public void move()
+        //Método move
+        public void move(float x, float y)
         {
-            Console.WriteLine("Informe a  nova posição de x e y respectivamente: ");
-            float x = float.Parse(Console.ReadLine());
-            float y = float.Parse(Console.ReadLine());
-
-            this.setx = x;
-            this.sety = y;
+            this.X = x;
+            this.Y = y;
         }
-
+        //Vendo se os vértices são iguais
         public bool iguais(float x1, float y1, float x2, float y2)
         {
             bool igual;
